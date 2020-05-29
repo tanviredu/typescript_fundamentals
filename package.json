@@ -1,0 +1,22 @@
+{
+  "name": "typescript_fundamentals",
+  "version": "1.0.0",
+  "description": "typescript_fundamentals",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanviredu/typescript_fundamentals.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanviredu/typescript_fundamentals/issues"
+  },
+  "homepage": "https://github.com/tanviredu/typescript_fundamentals#readme",
+  "dependencies": {
+    "typescript": "^3.9.3"
+  }
+}
