@@ -1,4 +1,9 @@
-class Engine{
+interface IEngine{
+    start():void;
+    stop():void;
+}
+
+class Engine implements IEngine{
     
     public horsePower:number;
     public engineType:string;
@@ -17,6 +22,19 @@ class Engine{
 }
 
 
+
+// making another custom engine class
+
+class CustomEngine implements IEngine{
+    start(){
+        console.log("Custom engine Started");
+    }
+    stop(){
+        console.log("Custom engine stopped");
+    }
+}
+
+
 class Accessory{
     public assessoryNumber:number;
     public title:string;
@@ -31,12 +49,12 @@ class Accessory{
 class Auto{
     
     private _basePrice:number;
-    private _engine:Engine;
+    private _engine:IEngine;
     make:string;
     model:string;
     accessoryList:string;
     
-    constructor(baseprice:number,engine:Engine,make:string,model:string){
+    constructor(baseprice:number,engine:IEngine,make:string,model:string){
         this._engine = engine;
         this._basePrice = baseprice;
         this.make = make;
@@ -61,7 +79,7 @@ class Auto{
     
 }
 
-var auto = new Auto(4000,new Engine(300,'v8'),'Chevy','silverdo');
+var auto = new Auto(4000,new CustomEngine(),'Chevy','silverdo');
 var total:number = auto.calculateTotal();
 console.log("The total number "+total);
 
@@ -72,7 +90,7 @@ class Truck extends Auto{
     // adding own property
     bedLength:string;
     fourByFour:boolean;
-    constructor(baseprice:number,engine:Engine,make:string,model:string,bedLength:string,fourByfour:boolean){
+    constructor(baseprice:number,engine:IEngine,make:string,model:string,bedLength:string,fourByfour:boolean){
         // now feed the base constructor what it needs
         super(baseprice,engine,make,model);
         this.bedLength = bedLength;
@@ -80,5 +98,5 @@ class Truck extends Auto{
     }
 }
 
-var truck = new Truck(4000,new Engine(300,'v8'),'Chevy','silverdo','longBed',true);
+var truck = new Truck(4000,new CustomEngine(),'Chevy','silverdo','longBed',true);
 console.log("Total of the truck "+truck.calculateTotal());
